@@ -7,9 +7,8 @@ const SearchExercises = () => {
 
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList');
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
       console.log(exercisesData);
-    
     }
   };
 
@@ -33,30 +32,33 @@ const SearchExercises = () => {
               border: 'none',
               borderRadius: '4px',
             },
-            width: { lg: '1170px', xs: '350px' },
+            width: { lg: '800px', xs: '350px' },
           }}
           height="76px"
-          value={search} 
+          value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search Exercises"
           type="text"
         />
-        <Button 
-          sx={{ 
-            bgcolor: '#3C40C6', 
-            color: '#fff', 
-            textTransform: 'none', 
-            height: '56px', 
-            position: 'absolute', 
-            right: '0' 
-          }} 
-          onClick={handleSearch} 
+        <Button
+          className="search-btn"
+          sx={{
+            bgcolor: '#FF2625',
+            color: '#fff',
+            textTransform: 'none',
+            width: { lg: '175px', xs: '80px' },
+            fontSize: { lg: '20px', xs: '14px' },
+            height: '56px',
+            position: 'absolute',
+            right: '0',
+          }}
+          onClick={handleSearch}
         >
           Search
         </Button>
       </Box>
     </Stack>
   );
-}
+};
 
 export default SearchExercises;
