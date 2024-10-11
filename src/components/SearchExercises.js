@@ -28,7 +28,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
       const searchedExercises = exercisesData.filter(
         (exercise) =>
-          exercise.name.toLowerCase().includes(search.toLowerCase()) || // Ensured case insensitivity
+          exercise.name.toLowerCase().includes(search.toLowerCase()) ||
           exercise.target.toLowerCase().includes(search.toLowerCase()) ||
           exercise.equipment.toLowerCase().includes(search.toLowerCase()) ||
           exercise.bodyPart.toLowerCase().includes(search.toLowerCase())
