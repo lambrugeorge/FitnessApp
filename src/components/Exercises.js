@@ -23,7 +23,7 @@ const Exercises= ({ exercises, setExercises, bodyPart })=>{
       setExercises(exercisesData);
     }
     fetchExercisesData();
-  }, [bodyPart]);
+  }, [bodyPart, setExercises]);
 
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;

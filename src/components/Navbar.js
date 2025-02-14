@@ -1,46 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Stack } from '@mui/material';
-import Logo from '../assets/images/Logo.png';
+import { Stack, Typography, Button, IconButton } from '@mui/material';
+import { Brightness4, Brightness7 } from '@mui/icons-material';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
+  const { darkMode, toggleTheme } = useTheme();
+
   return (
     <Stack 
       direction="row" 
       justifyContent="space-around" 
       sx={{ 
-        gap: { sm: '122px', xs: '40px' }, 
+        gap: { sm: '123px', xs: '40px' }, 
         mt: { sm: '32px', xs: '20px' },
-        justifyContent: 'none'}} px='20px'>
+        px: '20px',
+        justifyContent: 'none'}}>
 
-      <Link to="/"> 
-        <img
-          src={Logo} 
-          alt="logo" 
-          style={{ width: '48px', height: '48px', margin: '0 20px' }} 
-        />
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <Typography 
+          color="primary"
+          fontWeight="600"
+          fontSize="26px"
+        >
+          Fitness Club
+        </Typography>
       </Link>
       <Stack
         direction='row' 
         gap="40px" 
-        fontSize="24px" 
-        alignItems="flex-end"
+        alignItems="center"
+        fontSize="24px"
       >
-        <Stack direction="row" gap="40px" fontSize="24px" alignItems="center">
-          <Link to="/" style={{ textDecoration: 'none', color: '#3A1212' }}>
-            Home
-          </Link>
-          <a
-            href="#exercises"
-            style={{
-              textDecoration: 'none',
-              color: '#3A1212',
-              borderBottom: '3px solid #FF2625',
-            }}
-          >
-            Exercises
-          </a>
-        </Stack>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Button color="primary">Acasă</Button>
+        </Link>
+        <a href="#exercises" style={{ textDecoration: 'none' }}>
+          <Button color="primary">Exerciții</Button>
+        </a>
+        <IconButton onClick={toggleTheme} color="primary">
+          {darkMode ? <Brightness7 /> : <Brightness4 />}
+        </IconButton>
       </Stack>
     </Stack>
   );
